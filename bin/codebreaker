@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
 $LOAD_PATH << File.join(File.dirname(__FILE__), '/../lib')
-require 'mastermind'
+require 'codebreaker'
 
-game = Mastermind::Game.new(STDOUT)
+game = Codebreaker::Game.new(STDOUT)
 game.start
 

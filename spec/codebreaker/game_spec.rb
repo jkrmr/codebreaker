@@ -1,6 +1,6 @@
-require File.join(File.dirname(__FILE__), '/../spec_helper')
+require 'spec_helper'
 
-module Mastermind
+module Codebreaker
   describe Game do
     context 'starting up' do
       before :each do
@@ -9,7 +9,7 @@ module Mastermind
       end
 
       it 'sends a welcome message (passing the code to start)' do
-        expect(@messenger).to receive(:puts).with('Welcome to Mastermind!')
+        expect(@messenger).to receive(:puts).with('Welcome to Codebreaker!')
         @game.start %w(r g y c)
       end
 

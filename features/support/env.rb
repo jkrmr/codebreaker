@@ -1,4 +1,4 @@
-$LOAD_PATH << File.join(File.dirname(__FILE__), '/../../lib')
+$LOAD_PATH << File.expand_path('../../../lib', __FILE__)
 
 require 'rspec/expectations'
-require 'mastermind'
+require 'codebreaker'
