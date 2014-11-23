@@ -1,4 +1,5 @@
-Feature: Code-breaker starts game
+Feature: code-breaker starts game
+
   As a code-breaker
   I want to start a game
   So that I can break the code
@@ -6,6 +7,5 @@ Feature: Code-breaker starts game
   Scenario: start game
     Given I am not yet playing
     When I start a new game
-    Then the game should say "Welcome to Codebreaker!"
-    And the game should say "Enter guess:"
-
+    Then I should see "Welcome to Codebreaker!"
+    And I should see "Enter guess:"
