@@ -1,25 +1,26 @@
-class Output
-  def messages
-    @messages ||= []
+class Messenger
+  def messenger
+    @messenger ||= StringIO.new
   end
 
-  def puts(messages)
-    messages << message
+  def messages
+    @messenger.string.split("\n")
   end
 end
 
-def output
-  @output ||= Output.new
+def stdout
+  @stdout ||= Messenger.new
 end
 
 Given /^I am not yet playing$/ do
 end
 
 When /^I start a new game$/ do
-  game = Codebreaker::Game.new(output)
+  game = Codebreaker::Game.new(stdout.messenger)
   game.start
 end
 
-When /^I should see "([^"]*)"$/ do |message|
-  expect(output.messages).to include(message)
+Then /^I should see "([^"]*)"$/ do |message|
+  expect(stdout.messages).to include(message)
 end
+
