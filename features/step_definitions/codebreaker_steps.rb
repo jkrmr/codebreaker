@@ -1,3 +1,4 @@
+# Messenger double for standard out
 class Messenger
   def messenger
     @messenger ||= StringIO.new
@@ -12,6 +13,8 @@ def stdout
   @stdout ||= Messenger.new
 end
 
+# User starts a game
+
 Given /^I am not yet playing$/ do
 end
 
@@ -23,6 +26,8 @@ end
 Then /^I should see "([^"]*)"$/ do |message|
   expect(stdout.messages).to include(message)
 end
+
+# User submit guess
 
 Given(/^the secret code is "([^"]*)"$/) do |arg1|
   pending
