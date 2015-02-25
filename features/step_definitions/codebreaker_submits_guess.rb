@@ -1,12 +1,13 @@
-Given(/^the secret code is "([^"]*)"$/) do |arg1|
-  pending
+Given(/^the secret code is "([^"]*)"$/) do |secret|
+  @game = Codebreaker::Game.new(output)
+  @game.start(secret)
 end
 
-When(/^I guess "([^"]*)"$/) do |arg1|
-  pending
+When(/^I guess "([^"]*)"$/) do |guess|
+  @game.guess(guess)
 end
 
-Then(/^the mark should be "([^"]*)"$/) do |arg1|
-  pending
+Then(/^the mark should be "([^"]*)"$/) do |message|
+  expect(output.messages).to include(message)
 end
 
