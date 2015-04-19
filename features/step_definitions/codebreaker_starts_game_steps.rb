@@ -1,11 +1,11 @@
-Given /^I am not yet playing$/ do
+Given(/^I am not yet playing$/) do
 end
 
-When /^I start a new game$/ do
-  game = Codebreaker::Game.new(output.messenger)
+When(/^I start a new game$/) do
+  game = Codebreaker::Game.new(stdout.messenger)
   game.start
 end
 
-Then /^I should see "([^"]*)"$/ do |message|
-  expect(output.messages).to include(message)
+Then(/^I should see "([^"]*)"$/) do |message|
+  expect(stdout.messages).to include(message)
 end

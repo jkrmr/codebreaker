@@ -2,8 +2,8 @@ require 'spec_helper'
 
 module Codebreaker
   describe Game do
-    describe "#start" do
-      it "sends a welcome message" do
+    describe '#start' do
+      it 'sends a welcome message' do
         output = double('output').as_null_object
         game = Game.new(output)
 

@@ -9,7 +9,7 @@ class Messenger
   end
 end
 
-def output
+def stdout
   @output ||= Messenger.new
 end
 
