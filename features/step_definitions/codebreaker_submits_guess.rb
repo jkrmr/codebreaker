@@ -1,5 +1,5 @@
 Given(/^the secret code is "([^"]*)"$/) do |secret|
-  @game = Codebreaker::Game.new(output)
+  @game = Codebreaker::Game.new(stdout)
   @game.start(secret)
 end
 
@@ -8,6 +8,6 @@ When(/^I guess "([^"]*)"$/) do |guess|
 end
 
 Then(/^the mark should be "([^"]*)"$/) do |message|
-  expect(output.messages).to include(message)
+  expect(stdout.messages).to include(message)
 end
 
