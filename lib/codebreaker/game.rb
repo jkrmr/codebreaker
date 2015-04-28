@@ -1,5 +1,7 @@
 module Codebreaker
+
   class Game
+
     def initialize(output)
       @output = output
     end
@@ -8,5 +10,7 @@ module Codebreaker
       @output.puts 'Welcome to Codebreaker!'
       @output.puts 'Enter guess:'
     end
+
   end
+
 end
