@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 module Codebreaker
+
   describe Game do
     describe '#start' do
       let(:output) { double('output').as_null_object }
@@ -17,4 +18,5 @@ module Codebreaker
       end
     end
   end
+
 end

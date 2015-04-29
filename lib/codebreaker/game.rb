@@ -1,5 +1,6 @@
 module Codebreaker
 
+  # Responsible for processing user input and handling turns
   class Game
 
     def initialize(output)
