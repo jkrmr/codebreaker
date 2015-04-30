@@ -10,4 +10,3 @@ end
 Then(/^the mark should be "([^"]*)"$/) do |message|
   expect(stdout.messages).to include(message)
 end
-
