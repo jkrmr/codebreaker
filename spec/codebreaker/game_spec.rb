@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+# Codebreaker namespace. Also contains Game class.
 module Codebreaker
 
   describe Game do
