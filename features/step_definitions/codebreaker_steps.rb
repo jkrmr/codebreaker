@@ -6,7 +6,11 @@ class Messenger
   end
 
   def messages
-    @messenger.string.split("\n")
+    messenger.string.split("\n")
+  end
+
+  def puts(*args)
+    messenger.puts(*args)
   end
 
 end

@@ -7,6 +7,6 @@ When(/^I guess "([^"]*)"$/) do |guess|
   @game.guess(guess)
 end
 
-Then(/^the mark should be "([^"]*)"$/) do |message|
-  expect(stdout.messages).to include(message)
+Then(/^the mark should be "([^"]*)"$/) do |mark|
+  expect(stdout.messages).to include(mark)
 end
