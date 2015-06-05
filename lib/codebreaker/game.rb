@@ -2,7 +2,6 @@ module Codebreaker
 
   # Responsible for processing user input and handling turns
   class Game
-
     attr_reader :output
 
     def initialize(output)
@@ -10,14 +9,22 @@ module Codebreaker
     end
 
     def start(secret)
+      @secret = secret
       output.puts 'Welcome to Codebreaker!'
       output.puts 'Enter guess:'
     end
 
     def guess(guess)
-      output.puts guess
-    end
+      if guess[0] == @secret[0]
+        mark = '+'
+      elsif @secret.include?(guess[0])
+        mark = '-'
+      else
+        mark = ''
+      end
 
+      output.puts mark
+    end
   end
 
 end
