@@ -1,5 +1,4 @@
 module Codebreaker
-
   # Responsible for processing user input and handling turns
   class Game
     attr_reader :output
@@ -15,12 +14,30 @@ module Codebreaker
     end
 
     def guess(guess)
-      mark = ''
+      exact = '+' * exact_match_count(guess)
+      number = '-' * number_match_count(guess)
 
-      3.times { |i| mark << '+' if exact_match?(guess, i) }
-      3.times { |i| mark << '-' if number_match?(guess, i) }
+      output.puts exact + number
+    end
 
-      output.puts mark
+    def number_match_count(guess)
+      counter = 0
+
+      3.times do |i|
+        counter += 1 if number_match?(guess, i)
+      end
+
+      counter
+    end
+
+    def exact_match_count(guess)
+      counter = 0
+
+      3.times do |i|
+        counter += 1 if exact_match?(guess, i)
+      end
+
+      counter
     end
 
     def number_match?(guess, index)
@@ -31,5 +48,4 @@ module Codebreaker
       guess[index] == @secret[index]
     end
   end
-
 end
