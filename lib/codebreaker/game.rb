@@ -21,23 +21,17 @@ module Codebreaker
     end
 
     def number_match_count(guess)
-      counter = 0
-
-      3.times do |i|
-        counter += 1 if number_match?(guess, i)
+      (0..3).inject(0) do |count, i|
+        match = number_match?(guess, i) ? 1 : 0
+        count + match
       end
-
-      counter
     end
 
     def exact_match_count(guess)
-      counter = 0
-
-      3.times do |i|
-        counter += 1 if exact_match?(guess, i)
+      (0..3).inject(0) do |count, i|
+        match = exact_match?(guess, i) ? 1 : 0
+        count + match
       end
-
-      counter
     end
 
     def number_match?(guess, index)
