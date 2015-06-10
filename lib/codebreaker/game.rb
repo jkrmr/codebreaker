@@ -14,38 +14,41 @@ module Codebreaker
     end
 
     def guess(guess)
-      marker = Marker.new(code: @secret)
-      exact = '+' * marker.exact_match_count(guess)
-      number = '-' * marker.number_match_count(guess)
+      marker = Marker.new(secret: @secret, guess: guess)
+      exact = '+' * marker.exact_match_count
+      number = '-' * marker.number_match_count
 
       output.puts exact + number
     end
 
     class Marker
-      def initialize(code: secret)
-        @secret = code
+      attr_reader :guess, :secret
+
+      def initialize(secret:, guess:)
+        @secret = secret
+        @guess = guess
       end
 
-      def number_match_count(guess)
+      def number_match_count
         (0..3).inject(0) do |count, i|
-          match = number_match?(guess, i) ? 1 : 0
+          match = number_match?(i) ? 1 : 0
           count + match
         end
       end
 
-      def exact_match_count(guess)
+      def exact_match_count
         (0..3).inject(0) do |count, i|
-          match = exact_match?(guess, i) ? 1 : 0
+          match = exact_match?(i) ? 1 : 0
           count + match
         end
       end
 
-      def number_match?(guess, index)
-        @secret.include?(guess[index]) && !exact_match?(guess, index)
+      def number_match?(index)
+        secret.include?(guess[index]) && !exact_match?(index)
       end
 
-      def exact_match?(guess, index)
-        guess[index] == @secret[index]
+      def exact_match?(index)
+        guess[index] == secret[index]
       end
     end
   end
