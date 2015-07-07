@@ -84,6 +84,16 @@ module Codebreaker
           expect(matches).to eq 1
         end
       end
+
+      context 'with 1 exact match duplicated in guess' do
+        it 'returns 0' do
+          marker = Marker.new(secret: '1234', guess: '1155')
+
+          matches = marker.number_match_count
+
+          expect(matches).to eq 0
+        end
+      end
     end
   end
 end
