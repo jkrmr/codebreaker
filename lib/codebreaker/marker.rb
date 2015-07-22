@@ -13,17 +13,16 @@ module Codebreaker
     end
 
     def total_match_count
-      count = 0
-      secret = @secret.split('')
+      secret_chars = secret.chars
 
-      @guess.split('').map do |n|
-        if secret.include?(n)
-          secret.delete_at(secret.index(n))
-          count += 1
-        end
+      guess.chars.reduce(0) do |count, n|
+        count + (delete_first(secret_chars, n) ? 1 : 0)
       end
+    end
 
-      count
+    def delete_first(code, n)
+      code_point = code.index(n)
+      code.delete_at(code_point) if code_point
     end
 
     def exact_match_count
