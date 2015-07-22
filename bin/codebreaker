@@ -6,6 +6,9 @@ require 'codebreaker'
 game = Codebreaker::Game.new(STDOUT)
 game.start('1234')
 
-while guess = gets.chomp
+loop do
+  guess = gets.chomp
+  exit 0 if guess == 'quit'
+
   game.guess(guess)
 end
