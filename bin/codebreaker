@@ -1,16 +1,17 @@
 #!/usr/bin/env ruby
 
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'codebreaker'
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
+require "codebreaker"
 
 def generate_secret_code
-  options = ('1'..'6').to_a
+  options = ("1".."6").to_a
   (1..4).map { options.delete_at(rand(options.length)) }.join
 end
 
 game = Codebreaker::Game.new(STDOUT)
 secret_code = generate_secret_code
-p secret_code
 
 at_exit { puts "\n***\nThe secret code was: #{secret_code}\n***" }
 
@@ -18,7 +19,7 @@ game.start(secret_code)
 
 loop do
   guess = gets.chomp
-  exit 0 if guess == 'quit'
+  exit 0 if guess == "quit"
 
   game.guess(guess)
 end
